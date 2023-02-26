@@ -1,0 +1,66 @@
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // ввод для проводного
+        System.out.println("Enter your number:");
+        String my_number = scanner.nextLine();
+
+        System.out.println("Enter is your phone powered(y/n) :");
+
+        boolean power = false;
+        String  answer = scanner.nextLine();
+        switch (answer){
+            case "y" -> power = true;
+            case "n" -> power = false;
+        }
+
+
+
+        Telephone my_wired_phone = new Telephone(my_number, power);
+
+        System.out.println("Do you whant to call smb?(y/n)");
+        String answer2 = scanner.nextLine();
+
+        if (answer2.equals("y")){
+            for (int i = 0; i < 3; i++){
+                String pressed_button = scanner.nextLine();
+                my_wired_phone.press_button(pressed_button);
+            }
+            String pressed_buttons= my_wired_phone.getPressed_buttons();
+            my_wired_phone.call(pressed_buttons);
+        }
+
+        // ввод для мобильного
+
+        System.out.println("Enter your number:");
+        String mobila_number = scanner.nextLine();
+
+        System.out.println("Is your phone chargered? (>0 or 0) :");
+
+        boolean charge = false;
+        String  answer3 = scanner.nextLine();
+        //не получается использовать одну и ту же переменную
+        switch (answer){
+            case ">0" -> charge = true;
+            case "0" -> charge = false;
+        }
+
+        MobilePhone mobila = new MobilePhone(mobila_number, charge);
+
+        System.out.println("Do you what to write to smb?(y/n)");
+        String answer4 = scanner.nextLine();
+        if (answer4.equals("y")) {
+            System.out.println("whrite number:");
+            String  number_to_write = scanner.nextLine();
+
+            System.out.println("wrtie text for message:");
+            String text = scanner.nextLine();
+
+            mobila.message(number_to_write, text);
+        }
+    }
+}
