@@ -1,0 +1,13 @@
+public class MobilePhone extends Telephone{
+
+    String nums;
+    public MobilePhone(String number, boolean power){
+        // мне не нужен power, но не использовать не выходит
+        super(number, power);
+    }
+
+    public void message(String number, String text){
+        System.out.println("Sending to " + number + " ...");
+        System.out.println("Done!");
+    }
+}
