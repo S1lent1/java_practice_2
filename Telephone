@@ -1,0 +1,24 @@
+public class Telephone {
+    private String number;
+    private boolean power = true;
+    public String pressed_buttons = "";
+
+    public static void power(){
+    }
+    public void call(String pressed_buttons){
+        System.out.println("calling to "+ pressed_buttons + " ...");
+    }
+    public void press_button(String button){
+        pressed_buttons += button;
+        System.out.println("you pressed: " + pressed_buttons);
+    }
+
+    public Telephone(String number, boolean power){
+        this.number = number;
+        this.power = power;
+    }
+
+    public String getPressed_buttons(){
+        return pressed_buttons;
+    }
+}
